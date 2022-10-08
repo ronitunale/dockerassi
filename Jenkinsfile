@@ -15,7 +15,7 @@ pipeline {
 				sh "sudo chmod -R 777 /mnt"
 				sh "sudo yum install docker -y"
 				sh "sudo systemctl start docker"
-				sh "docker kill 22Q1"
+				sh "sudo docker kill 22Q1"
 				sh "sudo docker system prune -a -f"
 				sh "sudo docker pull httpd"
 				sh "sudo docker run -itdp 80:80 --name 22Q1 httpd"
