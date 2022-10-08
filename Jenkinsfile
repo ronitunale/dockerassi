@@ -15,10 +15,11 @@ pipeline {
 				sh "sudo chmod -R 777 /mnt"
 				sh "sudo yum install docker -y"
 				sh "sudo systemctl start docker"
+				sh "docker kill 22Q1"
 				sh "sudo docker system prune -a -f"
 				sh "sudo docker pull httpd"
 				sh "sudo docker run -itdp 80:80 --name 22Q1 httpd"
-				sh "sudo docker cp /mnt/repos/dockerassi/index.html 22Q1:/usr/local/apache2/htdocs"
+				sh "sudo docker cp /mnt/repos1/dockerassi/index.html 22Q1:/usr/local/apache2/htdocs"
 				
 				}
 				}
@@ -30,7 +31,7 @@ pipeline {
 				sh "sudo rm -rf *"
 				sh "sudo git clone https://github.com/ronitunale/dockerassi.git -b 22Q2"
 				sh "sudo docker run -itdp 90:80 --name 22Q2 httpd"
-				sh "sudo docker cp /mnt/repos/dockerassi/index.html 22Q2:/usr/local/apache2/htdocs"
+				sh "sudo docker cp /mnt/repos2/dockerassi/index.html 22Q2:/usr/local/apache2/htdocs"
 				
 				}
 				}
@@ -42,7 +43,7 @@ pipeline {
 				sh "sudo rm -rf *"
 				sh "sudo git clone https://github.com/ronitunale/dockerassi.git -b 22Q3 "
 				sh "sudo docker run -itdp 8181:80 --name 22Q3 httpd"
-				sh "sudo docker cp /mnt/repos/dockerassi/index.html 22Q3:/usr/local/apache2/htdocs"
+				sh "sudo docker cp /mnt/repos3/dockerassi/index.html 22Q3:/usr/local/apache2/htdocs"
 				
 				}
 				}
