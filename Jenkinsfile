@@ -42,15 +42,15 @@ pipeline {
 			steps {
 			dir ('/mnt/repos') {
 				sh "sudo rm -rf *"
-				sh " sudo yum install git -y"
+				sh "sudo yum install git -y"
 				sh "sudo git clone https://github.com/ronitunale/dockerassi.git -b 22Q1"
 				sh "sudo chmod -R 777 /mnt"
 				sh "sudo yum install docker -y"
-				sh "docker system prune -a -f"
-				sh "systemctl start docker"
-				sh "docker pull httpd"
-				sh "docker run -itdp 100:80 --name ronit httpd"
-				sh "docker cp /mnt/repos/22Q1/index.html ronit:/usr/local/apache2/htdocs"
+				sh "sudo docker system prune -a -f"
+				sh "sudo systemctl start docker"
+				sh "sudo docker pull httpd"
+				sh "sudo docker run -itdp 100:80 --name ronit httpd"
+				sh "sudo docker cp /mnt/repos/22Q1/index.html ronit:/usr/local/apache2/htdocs"
 				
 				}
 		}
@@ -67,16 +67,16 @@ pipeline {
 			stage ('Copy-repo-22Q2') {
 			steps {
 			dir ('/mnt/repos') {
-				sh "rm -rf *"
-				sh "yum install git -y"
-				sh "git clone https://github.com/ronitunale/dockerassi.git -b 22Q2"
-				sh "chmod -R 777 /mnt"
-				sh "yum install docker -y"
-				sh "docker system prune -a -f"
-				sh "systemctl start docker"
-				sh "docker pull httpd"
-				sh "docker run -itdp 8080:80 --name ronit httpd"
-				sh "docker cp /mnt/repos/22Q2/index.html ronit:/usr/local/apache2/htdocs"
+				sh "sudo rm -rf *"
+				sh "sudo yum install git -y"
+				sh "sudo git clone https://github.com/ronitunale/dockerassi.git -b 22Q2"
+				sh "sudo chmod -R 777 /mnt"
+				sh "sudo yum install docker -y"
+				sh "sudo docker system prune -a -f"
+				sh "sudo systemctl start docker"
+				sh "sudo docker pull httpd"
+				sh "sudo docker run -itdp 8080:80 --name ronit httpd"
+				sh "sudo docker cp /mnt/repos/22Q2/index.html ronit:/usr/local/apache2/htdocs"
 				
 				}
 		}
@@ -93,16 +93,16 @@ pipeline {
 			stage ('Copy-repo-22Q3') {
 			steps {
 			dir ('/mnt/repos') {
-				sh "rm -rf *"
-				sh "yum install git -y"
-				sh "git clone https://github.com/ronitunale/dockerassi.git -b 22Q3"
-				sh "chmod -R 777 /mnt"
-				sh "yum install docker -y"
-				sh "docker system prune -a -f"
-				sh "systemctl start docker"
-				sh "docker pull httpd"
-				sh "docker run -itdp 8181:80 --name ronit httpd"
-				sh "docker cp /mnt/repos/22Q3/index.html ronit:/usr/local/apache2/htdocs"
+				sh "sudo rm -rf *"
+				sh "sudo yum install git -y"
+				sh "sudo git clone https://github.com/ronitunale/dockerassi.git -b 22Q3"
+				sh "sudo chmod -R 777 /mnt"
+				sh "sudo yum install docker -y"
+				sh "sudo docker system prune -a -f"
+				sh "sudo systemctl start docker"
+				sh "sudo docker pull httpd"
+				sh "sudo docker run -itdp 8181:80 --name ronit httpd"
+				sh "sudo docker cp /mnt/repos/22Q3/index.html ronit:/usr/local/apache2/htdocs"
 				
 				}
 		}
