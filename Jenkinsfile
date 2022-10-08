@@ -26,7 +26,7 @@ pipeline {
 		}
 		
 		
-			stages ('deployment-on-slave') {
+			stage ('deployment-on-slave') {
 			
 			stages ('slave-1') {
 				agent {
