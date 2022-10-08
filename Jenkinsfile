@@ -27,10 +27,8 @@ pipeline {
 		}
 		}
 		
-		stage ('parallel-execution-slave') {
-		
-		parallel {
-				stage ('slave-1') {
+		stage ('execution-slave') {
+			stage ('slave-1') {
 				agent {
 				node {
 					label ('172.31.10.58')
@@ -110,7 +108,6 @@ pipeline {
 		}
 		
 		
-		}
 		}
 		}
 		
