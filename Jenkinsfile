@@ -17,7 +17,7 @@ pipeline {
 				sh "systemctl start docker"
 				sh "docker system prune -a -f"
 				sh "docker pull httpd"
-				sh "docker run -itdp 90:80 --name ronit httpd"
+				sh "docker run -itdp 90:80 --name rrr httpd"
 				sh "docker cp /mnt/repos/dockerassi/index.html ronit:/usr/local/apache2/htdocs"
 				
 				}
