@@ -7,7 +7,7 @@ pipeline {
 		}
 
 		stages {
-			stages ('Master') {
+			stage ('Master') {
 			
 			stage ('Copy-repo-master') {
 			steps {
@@ -27,10 +27,10 @@ pipeline {
 		}
 		}
 		
-		stages ('parallel-execution-slave') {
+		stage ('parallel-execution-slave') {
 		
 		parallel {
-				stages ('slave-1') {
+				stage ('slave-1') {
 				agent {
 				node {
 					label ('172.31.10.58')
@@ -56,7 +56,7 @@ pipeline {
 		}
 		}
 		}
-			stages ('slave-2') {
+			stage ('slave-2') {
 				agent {
 				node {
 					label ('172.31.4.125')
@@ -82,7 +82,7 @@ pipeline {
 		}
 		}
 		}
-		stages ('slave-3') {
+		stage ('slave-3') {
 				agent {
 				node {
 					label ('172.31.9.129')
