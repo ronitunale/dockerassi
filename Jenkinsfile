@@ -25,8 +25,6 @@ pipeline {
 		}
 		}
 		
-		
-		stage ('execution-slave') {
 			stage ('slave-1') {
 				agent {
 				node {
@@ -107,7 +105,6 @@ pipeline {
 		}
 		
 		
-		}
 		}
 		
 
