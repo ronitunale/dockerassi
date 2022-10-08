@@ -9,7 +9,7 @@ pipeline {
 		stages {
 			stage ('Master') {
 			
-			stage ('Copy-repo-master') {
+			
 			steps {
 			dir ('/mnt/repos') {
 				sh "rm -rf *"
@@ -25,9 +25,9 @@ pipeline {
 				}
 		}
 		}
-		}
 		
-		stage ('execution-slave') {
+		
+		stages ('execution-slave') {
 			stage ('slave-1') {
 				agent {
 				node {
@@ -54,7 +54,7 @@ pipeline {
 		}
 		}
 		}
-			stage ('slave-2') {
+			stages ('slave-2') {
 				agent {
 				node {
 					label ('172.31.4.125')
@@ -80,7 +80,7 @@ pipeline {
 		}
 		}
 		}
-		stage ('slave-3') {
+		stages ('slave-3') {
 				agent {
 				node {
 					label ('172.31.9.129')
