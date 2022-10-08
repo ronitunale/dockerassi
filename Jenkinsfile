@@ -24,7 +24,9 @@ pipeline {
 				}
 		}
 		}
+		}
 		
+			stages ('execution-on-slaves') {
 			stage ('slave-1') {
 				agent {
 				node {
@@ -103,9 +105,8 @@ pipeline {
 		}
 		}
 		}
-		
-		
 		}
+		
 		
 
 }
