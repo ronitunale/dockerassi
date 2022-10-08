@@ -13,8 +13,6 @@ pipeline {
 				sh "rm -rf *"
 				sh "git clone https://github.com/ronitunale/dockerassi.git "
 				sh "chmod -R 777 /mnt"
-				sh "yum install httpd -y"
-				sh "service httpd start"
 				sh "yum install docker -y"
 				sh "systemctl start docker"
 				sh "docker pull httpd"
