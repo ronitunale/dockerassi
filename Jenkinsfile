@@ -25,9 +25,9 @@ pipeline {
 		}
 		}
 		
-			stages ('deployment-on-slave') {
+			stage ('deployment-on-slave') {
 			
-			stage ('slave-1') {
+			stages ('slave-1') {
 				agent {
 				node {
 					label ('172.31.10.58')
@@ -53,7 +53,7 @@ pipeline {
 		}
 		}
 		}
-			stage('slave-2') {
+			stages ('slave-2') {
 				agent {
 				node {
 					label ('172.31.4.125')
@@ -79,7 +79,7 @@ pipeline {
 		}
 		}
 		}
-		stage ('slave-3') {
+		stages ('slave-3') {
 				agent {
 				node {
 					label ('172.31.9.129')
