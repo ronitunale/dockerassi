@@ -23,9 +23,9 @@ pipeline {
 				}
 		}
 		}
+		}
 		
-		
-			stages ('deployment-on-slave') {
+			stage ('deployment-on-slave') {
 			
 			stage ('slave-1') {
 				agent {
@@ -106,5 +106,5 @@ pipeline {
 		}
 		}
 		}
-		}
+	
 }
