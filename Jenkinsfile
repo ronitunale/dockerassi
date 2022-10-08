@@ -26,7 +26,9 @@ pipeline {
 		}
 		
 		
-			stage ('slave-1') {
+			stages ('deployment-on-slave') {
+			
+			stages ('slave-1') {
 				agent {
 				node {
 					label ('172.31.10.58')
@@ -34,7 +36,7 @@ pipeline {
 				}
 				}
 			
-			stages ('Copy-repo-22Q1') {
+			stage ('Copy-repo-22Q1') {
 			steps {
 			dir ('/mnt/repos') {
 				sh "sudo rm -rf *"
@@ -52,7 +54,7 @@ pipeline {
 		}
 		}
 		}
-			stage ('slave-2') {
+			stages ('slave-2') {
 				agent {
 				node {
 					label ('172.31.4.125')
@@ -60,7 +62,7 @@ pipeline {
 				}
 				}
 			
-			stages ('Copy-repo-22Q2') {
+			stage ('Copy-repo-22Q2') {
 			steps {
 			dir ('/mnt/repos') {
 				sh "sudo rm -rf *"
@@ -78,7 +80,7 @@ pipeline {
 		}
 		}
 		}
-		stage ('slave-3') {
+		stages ('slave-3') {
 				agent {
 				node {
 					label ('172.31.9.129')
@@ -86,7 +88,7 @@ pipeline {
 				}
 				}
 			
-			stages ('Copy-repo-22Q3') {
+			stage ('Copy-repo-22Q3') {
 			steps {
 			dir ('/mnt/repos') {
 				sh "sudo rm -rf *"
@@ -105,5 +107,5 @@ pipeline {
 		}
 		}
 		}
-		
+		}
 }
