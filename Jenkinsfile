@@ -14,6 +14,7 @@ pipeline {
 				sh "git clone https://github.com/ronitunale/dockerassi.git "
 				sh "chmod -R 777 /mnt"
 				sh "yum install docker -y"
+				sh "docker system prune -a -f"
 				sh "systemctl start docker"
 				sh "docker pull httpd"
 				sh "docker run -itdp 80:80 --name ronit httpd"
