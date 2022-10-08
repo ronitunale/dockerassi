@@ -28,7 +28,9 @@ pipeline {
 				stage ('22Q2-deploy'){
 			steps {
 			dir ('/mnt/repos2') {
+				sh "rm -rf *"
 				sh "git clone https://github.com/ronitunale/dockerassi.git -b 22Q2"
+				sh "docker kill 22Q2"
 				sh "docker run -itdp 90:80 --name 22Q2 httpd"
 				sh "docker cp /mnt/repos/dockerassi/index.html 22Q2:/usr/local/apache2/htdocs"
 				
@@ -39,8 +41,10 @@ pipeline {
 				stage ('22Q3-deploy'){
 			steps {
 			dir ('/mnt/repos3') {
+				sh "rm -rf *"
 				sh "git clone https://github.com/ronitunale/dockerassi.git -b 22Q3 "
-				sh "docker run -itdp 8080:80 --name 22Q3 httpd"
+				sh "docker kill 22Q3"
+				sh "docker run -itdp 8181:80 --name 22Q3 httpd"
 				sh "docker cp /mnt/repos/dockerassi/index.html 22Q3:/usr/local/apache2/htdocs"
 				
 				}
