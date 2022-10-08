@@ -24,7 +24,7 @@ pipeline {
 				}
 		}
 		}
-		}
+		
 		
 			stage ('slave-1') {
 				agent {
